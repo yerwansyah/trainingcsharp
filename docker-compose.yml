@@ -18,7 +18,9 @@ services:
       MYSQL_ROOT_PASSWORD: root
     ports:
       - 3306:3306
-    
+    volumes:
+      - D:/Work/Code/trainingcsharp/db/data/mysql:/var/lib/mysql
+
   adminer:
     image: adminer
     restart: always

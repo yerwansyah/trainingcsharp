@@ -14,6 +14,7 @@ namespace KantorWebAPI.Controllers
             this.context = context;
         }
 
+        [HttpGet]
         public ActionResult<IEnumerable<EmployeeItem>> ListEmployee()
         {
             context = HttpContext.RequestServices.GetService(typeof(EmployeeContext)) as EmployeeContext;
@@ -21,7 +22,8 @@ namespace KantorWebAPI.Controllers
             return context.ListEmployee();
         }
 
-        [HttpGet("{id}", Name ="Get")]
+        [HttpGet]
+        [Route("{id}")]
         public ActionResult<EmployeeItem> GetEmployee(int id)
         {
             context = HttpContext.RequestServices.GetService(typeof(EmployeeContext)) as EmployeeContext;
